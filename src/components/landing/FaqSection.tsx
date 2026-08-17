@@ -56,7 +56,10 @@ export function FaqSection() {
               <AccordionTrigger className="min-h-11 py-3 text-left text-base md:text-lg">
                 {item.question}
               </AccordionTrigger>
-              <AccordionContent className="text-base text-muted-foreground">
+              <AccordionContent
+                forceMount
+                className="text-base text-muted-foreground"
+              >
                 {item.answer}
               </AccordionContent>
             </AccordionItem>

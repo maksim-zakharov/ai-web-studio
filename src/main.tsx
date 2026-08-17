@@ -1,14 +1,23 @@
 import { StrictMode } from "react"
-import { createRoot } from "react-dom/client"
+import { createRoot, hydrateRoot } from "react-dom/client"
 
 import "./index.css"
-import App from "./App.tsx"
-import { ThemeProvider } from "@/components/theme-provider.tsx"
+import { AppTree } from "@/app-tree.tsx"
 
-createRoot(document.getElementById("root")!).render(
+const rootElement = document.getElementById("root")
+
+if (!rootElement) {
+  throw new Error("Не найден корневой элемент #root")
+}
+
+const app = (
   <StrictMode>
-    <ThemeProvider defaultTheme="dark">
-      <App />
-    </ThemeProvider>
+    <AppTree />
   </StrictMode>
 )
+
+if (rootElement.hasChildNodes()) {
+  hydrateRoot(rootElement, app)
+} else {
+  createRoot(rootElement).render(app)
+}

@@ -32,6 +32,10 @@ function isTheme(value: string | null): value is Theme {
 }
 
 function getSystemTheme(): ResolvedTheme {
+  if (typeof window === "undefined") {
+    return "dark"
+  }
+
   if (window.matchMedia(COLOR_SCHEME_QUERY).matches) {
     return "dark"
   }
@@ -84,14 +88,14 @@ export function ThemeProvider({
   disableTransitionOnChange = true,
   ...props
 }: ThemeProviderProps) {
-  const [theme, setThemeState] = React.useState<Theme>(() => {
+  const [theme, setThemeState] = React.useState<Theme>(defaultTheme)
+
+  React.useEffect(() => {
     const storedTheme = localStorage.getItem(storageKey)
     if (isTheme(storedTheme)) {
-      return storedTheme
+      setThemeState(storedTheme)
     }
-
-    return defaultTheme
-  })
+  }, [storageKey])
 
   const setTheme = React.useCallback(
     (nextTheme: Theme) => {
