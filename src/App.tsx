@@ -1,15 +1,19 @@
+import { AboutSection } from "@/components/landing/AboutSection"
+import { CasesSection } from "@/components/landing/CasesSection"
 import { ContactSection } from "@/components/landing/ContactSection"
-import { ExperienceSection } from "@/components/landing/ExperienceSection"
 import { FaqSection } from "@/components/landing/FaqSection"
 import { HeroSection } from "@/components/landing/HeroSection"
+import { PricingSection } from "@/components/landing/PricingSection"
 import { ProcessSection } from "@/components/landing/ProcessSection"
 import { ServicesSection } from "@/components/landing/ServicesSection"
 import { SiteFooter } from "@/components/landing/SiteFooter"
 import { SiteHeader } from "@/components/landing/SiteHeader"
+import { TrustSection } from "@/components/landing/TrustSection"
 import { WhySection } from "@/components/landing/WhySection"
+import { WorkflowSection } from "@/components/landing/WorkflowSection"
 
 /**
- * Корневая страница лендинга AI Web Studio.
+ * Коммерческий лендинг: одна indexable страница с якорными секциями.
  */
 export function App() {
   return (
@@ -17,10 +21,14 @@ export function App() {
       <SiteHeader />
       <main>
         <HeroSection />
+        <TrustSection />
         <ServicesSection />
-        <ProcessSection />
-        <ExperienceSection />
         <WhySection />
+        <WorkflowSection />
+        <CasesSection />
+        <ProcessSection />
+        <PricingSection />
+        <AboutSection />
         <FaqSection />
         <ContactSection />
       </main>

@@ -1,4 +1,4 @@
-import { MenuIcon } from "lucide-react"
+import { ArrowRightIcon, MenuIcon } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -9,32 +9,27 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { navItems } from "@/content/site"
 import { telegramUrl } from "@/lib/social"
 
-const navItems = [
-  { href: "#services", label: "Решения" },
-  { href: "#process", label: "Процесс" },
-  { href: "#experience", label: "Кейсы" },
-  { href: "#why", label: "Подход" },
-  { href: "#faq", label: "FAQ" },
-  { href: "#contact", label: "Контакты" },
-]
-
 /**
- * Шапка сайта с навигацией по секциям лендинга.
+ * Липкая шапка с якорной навигацией и CTA.
  */
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 pt-[env(safe-area-inset-top)] backdrop-blur-md">
-      <div className="page-container flex h-14 items-center justify-between sm:h-16 lg:h-16">
+    <header className="sticky top-0 z-40 border-b border-white/8 bg-background/75 pt-[env(safe-area-inset-top)] backdrop-blur-md">
+      <div className="page-container flex h-14 items-center justify-between sm:h-16">
         <a
           href="#top"
-          className="font-heading text-base font-semibold tracking-tight text-foreground sm:text-lg lg:text-xl"
+          className="font-heading text-[0.95rem] font-semibold tracking-tight sm:text-base"
         >
-          AI Web Studio
+          Максим Захаров
         </a>
 
-        <nav className="hidden items-center gap-5 lg:flex xl:gap-7">
+        <nav
+          className="hidden items-center gap-6 lg:flex xl:gap-7"
+          aria-label="Разделы страницы"
+        >
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -47,9 +42,9 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button asChild size="lg">
+          <Button asChild className="h-10 px-4">
             <a href={telegramUrl} target="_blank" rel="noopener noreferrer">
-              Обсудить решение
+              Обсудить проект
             </a>
           </Button>
         </div>
@@ -70,9 +65,12 @@ export function SiteHeader() {
             className="w-[min(100%,20rem)] pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
           >
             <SheetHeader>
-              <SheetTitle>AI Web Studio</SheetTitle>
+              <SheetTitle>Максим Захаров</SheetTitle>
             </SheetHeader>
-            <nav className="mt-4 flex flex-col gap-1 px-4">
+            <nav
+              className="mt-4 flex flex-col gap-1 px-4"
+              aria-label="Мобильное меню"
+            >
               {navItems.map((item) => (
                 <SheetClose asChild key={item.href}>
                   <a
@@ -83,11 +81,18 @@ export function SiteHeader() {
                   </a>
                 </SheetClose>
               ))}
-              <Button asChild className="mt-3 min-h-11">
-                <a href={telegramUrl} target="_blank" rel="noopener noreferrer">
-                  Обсудить решение
-                </a>
-              </Button>
+              <SheetClose asChild>
+                <Button asChild className="mt-3 h-11">
+                  <a
+                    href={telegramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Обсудить проект
+                    <ArrowRightIcon data-icon="inline-end" />
+                  </a>
+                </Button>
+              </SheetClose>
             </nav>
           </SheetContent>
         </Sheet>

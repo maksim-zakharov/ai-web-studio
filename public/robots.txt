@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maksim-zakharov.github.io/ai-web-studio/sitemap.xml

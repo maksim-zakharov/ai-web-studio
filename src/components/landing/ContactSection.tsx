@@ -1,98 +1,80 @@
 import { useState } from "react"
 import type { FormEvent } from "react"
-import { CheckIcon, SendIcon } from "lucide-react"
+import { ArrowRightIcon, CheckIcon } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import {
-  Field,
-  FieldDescription,
-  FieldGroup,
-  FieldLabel,
-} from "@/components/ui/field"
+import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { linkedInUrl, telegramHandle, telegramUrl } from "@/lib/social"
+import { budgetOptions } from "@/content/site"
+import { telegramHandle, telegramUrl } from "@/lib/social"
 
 /**
- * Секция контакта с простой формой заявки (пока без бэкенда).
+ * Финальный CTA и форма заявки.
  */
 export function ContactSection() {
   const [submitted, setSubmitted] = useState(false)
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    const data = new FormData(event.currentTarget)
+    const lines = [
+      `Имя: ${String(data.get("name") ?? "")}`,
+      `Контакт: ${String(data.get("contact") ?? "")}`,
+      `Задача: ${String(data.get("task") ?? "")}`,
+      `Бюджет: ${String(data.get("budget") ?? "")}`,
+      `Комментарий: ${String(data.get("comment") ?? "")}`,
+    ]
+    const text = lines.join("\n")
+
+    void navigator.clipboard?.writeText(text).catch(() => undefined)
+    window.open(telegramUrl, "_blank", "noopener,noreferrer")
     setSubmitted(true)
   }
 
   return (
     <section
-      id="contact"
-      className="section-anchor section-y pb-[max(3.5rem,env(safe-area-inset-bottom))]"
+      id="contacts"
+      className="section-anchor section-y pb-[max(4rem,env(safe-area-inset-bottom))]"
     >
-      <div className="page-container grid gap-10 lg:grid-cols-2 lg:gap-16">
+      <div className="page-container grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:gap-16">
         <div>
-          <p className="text-sm font-medium tracking-wide text-primary uppercase">
-            Контакты
-          </p>
-          <h2 className="mt-3 font-heading text-[clamp(1.5rem,4vw,2.25rem)] font-semibold text-balance">
-            Расскажите о задаче бизнеса
+          <h2 className="font-heading text-[clamp(1.85rem,5vw,3.25rem)] font-semibold text-balance">
+            Есть задача? Давайте обсудим.
           </h2>
-          <p className="mt-4 text-muted-foreground md:text-lg">
-            Коротко опишите, какой результат нужен. Вернусь с вопросами и
-            предложением по решению — без обязательств и технических анкет.
+          <p className="mt-5 max-w-lg text-base text-muted-foreground sm:text-lg">
+            Расскажите, что нужно сделать. Я оценю задачу, предложу подход и
+            ориентировочную стоимость.
           </p>
-          <div className="mt-8 flex flex-col gap-2 text-sm text-muted-foreground">
-            <p>Ответ обычно в течение 1 рабочего дня.</p>
-            <p>
-              Telegram:{" "}
-              <a
-                href={telegramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-foreground underline-offset-4 hover:underline"
-              >
-                {telegramHandle}
-              </a>
-            </p>
-            <p>
-              LinkedIn:{" "}
-              <a
-                href={linkedInUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-foreground underline-offset-4 hover:underline"
-              >
-                maksim-zakharov
-              </a>
-            </p>
-          </div>
+          <Button asChild className="mt-8 h-11 px-5">
+            <a href={telegramUrl} target="_blank" rel="noopener noreferrer">
+              Обсудить проект
+              <ArrowRightIcon data-icon="inline-end" />
+            </a>
+          </Button>
         </div>
 
         <form
           onSubmit={handleSubmit}
-          className="rounded-2xl border border-border bg-card/80 p-4 sm:p-5 md:p-6"
+          className="rounded-2xl border border-white/8 bg-card/50 p-5 sm:p-7"
         >
           {submitted ? (
-            <div className="flex min-h-64 flex-col items-start justify-center gap-3">
-              <div className="flex size-10 items-center justify-center rounded-full bg-primary/15 text-primary">
+            <div className="flex min-h-80 flex-col items-start justify-center gap-3">
+              <div className="flex size-10 items-center justify-center rounded-full bg-white/10">
                 <CheckIcon />
               </div>
               <h3 className="font-heading text-xl font-semibold">
-                Заявка принята
+                Текст заявки скопирован
               </h3>
               <p className="text-muted-foreground">
-                Пока форма демо без отправки на сервер. Напишите напрямую в
-                Telegram{" "}
-                <a
-                  href={telegramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-foreground underline-offset-4 hover:underline"
-                >
-                  {telegramHandle}
-                </a>
-                .
+                Откройте Telegram {telegramHandle} и отправьте сообщение. Если
+                чат не открылся — напишите напрямую.
               </p>
+              <Button asChild className="mt-2 h-11">
+                <a href={telegramUrl} target="_blank" rel="noopener noreferrer">
+                  Открыть Telegram
+                </a>
+              </Button>
             </div>
           ) : (
             <FieldGroup>
@@ -107,35 +89,52 @@ export function ContactSection() {
                 />
               </Field>
               <Field>
-                <FieldLabel htmlFor="contact">Telegram или email</FieldLabel>
+                <FieldLabel htmlFor="contact">Telegram / телефон</FieldLabel>
                 <Input
                   id="contact"
                   name="contact"
-                  placeholder="@username или you@mail.com"
+                  placeholder="@username или +7…"
                   className="min-h-11"
                   required
                 />
               </Field>
               <Field>
-                <FieldLabel htmlFor="message">Задача бизнеса</FieldLabel>
-                <Textarea
-                  id="message"
-                  name="message"
-                  placeholder="Какой результат нужен, для кого, сроки"
-                  rows={5}
+                <FieldLabel htmlFor="task">Что нужно сделать?</FieldLabel>
+                <Input
+                  id="task"
+                  name="task"
+                  placeholder="Лендинг, сайт компании, MVP…"
+                  className="min-h-11"
                   required
                 />
-                <FieldDescription>
-                  Чем яснее цель бизнеса — тем точнее предложу решение.
-                </FieldDescription>
               </Field>
-              <Button
-                type="submit"
-                size="lg"
-                className="h-11 w-full px-4 sm:w-auto"
-              >
+              <Field>
+                <FieldLabel htmlFor="budget">Примерный бюджет</FieldLabel>
+                <select
+                  id="budget"
+                  name="budget"
+                  required
+                  className="h-11 w-full min-w-0 rounded-lg border border-input bg-transparent px-2.5 text-base outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 md:text-sm dark:bg-input/30"
+                >
+                  {budgetOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </Field>
+              <Field>
+                <FieldLabel htmlFor="comment">Комментарий</FieldLabel>
+                <Textarea
+                  id="comment"
+                  name="comment"
+                  placeholder="Сроки, ссылки, ограничения"
+                  rows={4}
+                />
+              </Field>
+              <Button type="submit" className="h-11 w-full px-4 sm:w-auto">
                 Отправить
-                <SendIcon data-icon="inline-end" />
+                <ArrowRightIcon data-icon="inline-end" />
               </Button>
             </FieldGroup>
           )}

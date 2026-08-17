@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import { renderToString } from "react-dom/server"
 import { StrictMode } from "react"
 
