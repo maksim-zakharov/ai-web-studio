@@ -10,7 +10,7 @@ interface CaseHighlight {
   result: string
 }
 
-const companies = ["Тинькофф", "Сбер", "Яндекс.Маркет", "Wildberries", "МТС"]
+const companies = ["Тинькофф", "Сбер", "Яндекс.Маркет", "Wildberries"]
 
 const highlights: CaseHighlight[] = [
   {
@@ -30,12 +30,6 @@ const highlights: CaseHighlight[] = [
     solution: "Корпоративный портал",
     result:
       "Система для 7 000+ сотрудников каждый день и 20 000 посещений: справки, вакансии, учёт рабочего времени и внутренние сервисы.",
-  },
-  {
-    company: "РТ Лабс · МТС · Smart Valley",
-    solution: "Продукты и внутренние системы",
-    result:
-      "Запускал сложные контуры с нуля: от сценариев для пользователей до интеграций и сопровождения релиза.",
   },
 ]
 
