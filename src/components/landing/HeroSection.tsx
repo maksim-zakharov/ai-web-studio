@@ -17,16 +17,15 @@ export function HeroSection() {
       <div className="page-container grid items-center gap-10 py-12 sm:gap-12 sm:py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16 lg:py-24">
         <div className="max-w-xl">
           <p className="animate-fade-up text-xs font-medium tracking-[0.22em] text-muted-foreground uppercase">
-            Москва · AI-first · под ключ
+            Москва · AI-first · работаю один
           </p>
           <h1 className="animate-fade-up-delay mt-4 font-heading text-[clamp(1.85rem,6.2vw,3.65rem)] leading-[1.08] font-semibold text-balance">
-            Telegram WebApp, CRM, кабинеты и магазины
+            Нужен рабочий продукт, не сайт
           </h1>
           <p className="animate-fade-up-delay-2 mt-5 max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Проектирую, разрабатываю и запускаю сам. Не лендинги и не «сайт
-            компании» — рабочие продукты: мини-приложения в Telegram, CRM,
-            кабинеты и интернет-магазины. AI-first подход позволяет работать
-            быстрее студии — без агентской наценки.
+            Делаю Telegram WebApp, CRM, кабинеты и магазины. Лендинги не беру.
+            Проектирую, пишу и запускаю сам — быстрее студии, без оплаты за
+            пятерых.
           </p>
           <div className="animate-fade-up-delay-2 mt-8 flex w-full flex-col gap-3 sm:flex-row sm:items-center">
             <Button asChild className="h-11 w-full px-5 sm:w-auto">

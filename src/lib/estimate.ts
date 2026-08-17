@@ -105,7 +105,7 @@ export const contentOptions: CalculatorOption<ContentId>[] = [
 export const deadlineOptions: CalculatorOption<DeadlineId>[] = [
   { id: "relaxed", label: "Не срочно" },
   { id: "normal", label: "2–4 недели" },
-  { id: "rush", label: "Нужно максимально быстро" },
+  { id: "rush", label: "Срочно" },
 ]
 
 const productBase: Record<ProductId, number> = {

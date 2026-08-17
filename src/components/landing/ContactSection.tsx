@@ -33,16 +33,16 @@ export function ContactSection() {
   return (
     <section
       id="contacts"
-      className="section-anchor section-y pb-[max(4rem,env(safe-area-inset-bottom))]"
+      className="section-anchor section-y"
     >
       <div className="page-container grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:gap-16">
         <div>
           <h2 className="font-heading text-[clamp(1.85rem,5vw,3.25rem)] font-semibold text-balance">
-            Есть задача? Давайте обсудим.
+            Есть задача — напишите.
           </h2>
           <p className="mt-5 max-w-lg text-base text-muted-foreground sm:text-lg">
-            Расскажите, что нужно сделать — или сначала соберите ориентир в
-            калькуляторе. После этого пришлю подход и стоимость.
+            Можно сначала прикинуть цифру в калькуляторе. Потом разберёмся в
+            Telegram: что делать и сколько это будет стоить.
           </p>
           <Button asChild className="mt-8 h-11 px-5">
             <a href="#calculate">
@@ -62,11 +62,11 @@ export function ContactSection() {
                 <CheckIcon />
               </div>
               <h3 className="font-heading text-xl font-semibold">
-                Текст заявки скопирован
+                Скопировал текст заявки
               </h3>
               <p className="text-muted-foreground">
-                Откройте Telegram {telegramHandle} и отправьте сообщение. Если
-                чат не открылся — напишите напрямую.
+                Откройте Telegram {telegramHandle} и отправьте. Если чат не
+                открылся — напишите сами.
               </p>
               <Button asChild className="mt-2 h-11">
                 <a href={telegramUrl} target="_blank" rel="noopener noreferrer">
@@ -81,7 +81,7 @@ export function ContactSection() {
                 <Input
                   id="name"
                   name="name"
-                  placeholder="Как к вам обращаться"
+                  placeholder="Имя"
                   className="min-h-11"
                   required
                 />

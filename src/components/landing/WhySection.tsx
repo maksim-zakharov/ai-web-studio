@@ -17,7 +17,8 @@ export function WhySection() {
           Почему не агентство?
         </h2>
         <p className="mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-          Один сильный исполнитель вместо команды, которую нужно координировать.
+          В агентстве задачу гоняют по цепочке. Здесь её делает один человек —
+          я.
         </p>
 
         <div className="mt-10 grid gap-4 lg:grid-cols-2 lg:gap-6">

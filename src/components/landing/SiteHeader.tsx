@@ -16,7 +16,7 @@ import { navItems } from "@/content/site"
  */
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-white/8 bg-background/75 pt-[env(safe-area-inset-top)] backdrop-blur-md">
+    <header className="site-header sticky top-0 z-40 border-b border-white/8 bg-background/75 backdrop-blur-md">
       <div className="page-container flex h-14 items-center justify-between sm:h-16">
         <a
           href="#top"
@@ -57,10 +57,7 @@ export function SiteHeader() {
               <MenuIcon />
             </Button>
           </SheetTrigger>
-          <SheetContent
-            side="right"
-            className="w-[min(100%,20rem)] pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
-          >
+          <SheetContent side="right" className="w-[min(100%,20rem)]">
             <SheetHeader>
               <SheetTitle>Максим Захаров</SheetTitle>
             </SheetHeader>

@@ -9,7 +9,7 @@ export function SiteFooter() {
 
   return (
     <footer className="border-t border-white/8">
-      <div className="page-container flex flex-col gap-8 py-10 pb-[max(2.5rem,env(safe-area-inset-bottom))] sm:py-12">
+      <div className="site-footer-inner page-container flex flex-col gap-8 py-10 sm:pt-12">
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div>
             <p className="font-heading text-lg font-semibold">Максим Захаров</p>

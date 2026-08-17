@@ -49,18 +49,18 @@ export function CalculatorSection() {
             Оценка
           </p>
           <h2 className="mt-3 max-w-xl font-heading text-[clamp(1.6rem,4vw,2.5rem)] font-semibold text-balance">
-            Рассчитайте проект
+            Прикиньте стоимость
           </h2>
           <p className="mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
-            Стоимость зависит от задач, объёма и функциональности. Ответьте на
-            несколько вопросов, чтобы получить ориентировочную оценку.
+            Цена зависит от того, что именно нужно, сколько экранов и какие
+            функции. Отметьте пункты — будет вилка, не прайс-лист.
           </p>
 
           <form
             className="mt-10 flex flex-col gap-10"
             onSubmit={(event) => event.preventDefault()}
           >
-            <ChoiceGroup legend="Что нужно разработать?">
+            <ChoiceGroup legend="Что нужно сделать?">
               {productOptions.map((option) => (
                 <Choice
                   key={option.id}
@@ -114,10 +114,7 @@ export function CalculatorSection() {
               ))}
             </ChoiceGroup>
 
-            <ChoiceGroup
-              legend="Функциональность"
-              hint="Можно выбрать несколько"
-            >
+            <ChoiceGroup legend="Что ещё нужно" hint="Можно несколько">
               {featureOptions.map((option) => (
                 <Choice
                   key={option.id}
@@ -136,7 +133,7 @@ export function CalculatorSection() {
               ))}
             </ChoiceGroup>
 
-            <ChoiceGroup legend="Бриф и материалы">
+            <ChoiceGroup legend="Что уже есть">
               {contentOptions.map((option) => (
                 <Choice
                   key={option.id}
@@ -177,7 +174,7 @@ export function CalculatorSection() {
         <aside className="lg:sticky lg:top-24">
           <div className="rounded-2xl border border-white/10 bg-background p-6 sm:p-8">
             <h3 className="font-heading text-xl font-semibold">
-              Предварительная оценка
+              Ориентир
             </h3>
             <div aria-live="polite" className="mt-5">
               {complete && estimate ? (
@@ -190,25 +187,24 @@ export function CalculatorSection() {
                     {formatWeeksRange(estimate.weeksMin, estimate.weeksMax)}
                   </p>
                   <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                    Точная стоимость после обсуждения задачи. Почасовая
-                    разработка не используется.
+                    Это вилка, не договор. Точную сумму скажу, когда разберём
+                    задачу. Почасовки нет.
                   </p>
                   <Button
                     type="button"
                     className="mt-6 h-11 w-full px-4 sm:w-auto"
                     onClick={sendToTelegram}
                   >
-                    Получить подробную оценку в Telegram
+                    Отправить расчёт в Telegram
                     <ArrowRightIcon data-icon="inline-end" />
                   </Button>
                   <p className="mt-3 text-xs text-muted-foreground">
-                    Состав задачи скопируется — вставьте его в чат{" "}
-                    {telegramHandle}.
+                    Текст скопируется. Вставьте его в чат {telegramHandle}.
                   </p>
                 </>
               ) : (
                 <p className="text-lg text-muted-foreground">
-                  Рассчитаем после заполнения
+                  Отметьте пункты слева — посчитаю вилку
                 </p>
               )}
             </div>

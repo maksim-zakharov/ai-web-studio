@@ -11,7 +11,7 @@ export function ProcessSection() {
           Процесс
         </p>
         <h2 className="mt-3 max-w-xl font-heading text-[clamp(1.6rem,4vw,2.5rem)] font-semibold text-balance">
-          От идеи до production
+          Как обычно идёт работа
         </h2>
 
         <ol className="mt-10 divide-y divide-white/8 border-y border-white/8">

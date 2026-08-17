@@ -18,12 +18,11 @@ export function CasesSection() {
           Кейсы
         </p>
         <h2 className="mt-3 max-w-2xl font-heading text-[clamp(1.6rem,4vw,2.5rem)] font-semibold text-balance">
-          Продукты, которые уже работали в бизнесе
+          Что уже запускал в больших компаниях
         </h2>
         <p className="mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-          Эти системы я запускал внутри Тинькофф, Сбера, Яндекс.Маркета и
-          Wildberries — не как внешнее агентство. Публичных демо нет: это
-          внутренние продукты компаний.
+          Это не агентские кейсы. Я делал эти продукты внутри Тинькофф, Сбера,
+          Яндекс.Маркета и Wildberries. Демо снаружи нет — системы внутренние.
         </p>
 
         <ul className="mt-10 flex flex-col gap-8 lg:gap-12">
@@ -38,7 +37,8 @@ export function CasesSection() {
           Концепты
         </h3>
         <p className="mt-3 max-w-2xl text-muted-foreground">
-          Демонстрация подхода к разным нишам. Это не клиентские проекты.
+          Не заказчики. Просто примеры, как я собираю WebApp, CRM, кабинет и
+          магазин.
         </p>
 
         <ul className="mt-8 grid gap-6 sm:grid-cols-2">
@@ -81,11 +81,11 @@ function CaseCard({ item, featured = false }: CaseCardProps) {
       <div className={featured ? "p-6 sm:p-8" : "p-5 sm:p-6"}>
         {isConcept ? (
           <p className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
-            Концепт — создан для демонстрации подхода
+            Концепт, не клиентский проект
           </p>
         ) : (
           <p className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
-            Продукт внутри компании
+            Делал внутри компании
           </p>
         )}
         <h3 className="mt-2 font-heading text-xl font-semibold sm:text-2xl">

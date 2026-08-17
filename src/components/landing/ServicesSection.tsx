@@ -11,7 +11,7 @@ export function ServicesSection() {
           Услуги
         </p>
         <h2 className="mt-3 max-w-xl font-heading text-[clamp(1.6rem,4vw,2.5rem)] font-semibold text-balance">
-          Что можно сделать
+          Что делаю
         </h2>
 
         <ul className="mt-10 grid gap-3 sm:mt-12 sm:grid-cols-2 sm:gap-4">
