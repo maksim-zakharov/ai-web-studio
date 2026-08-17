@@ -1,7 +1,7 @@
 import { services } from "@/content/site"
 
 /**
- * Карточки услуг с ценами.
+ * Карточки услуг без публичного прайса.
  */
 export function ServicesSection() {
   return (
@@ -23,9 +23,6 @@ export function ServicesSection() {
               <h3 className="font-heading text-xl font-semibold sm:text-2xl">
                 {item.title}
               </h3>
-              {item.price ? (
-                <p className="mt-3 text-lg text-foreground">{item.price}</p>
-              ) : null}
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
                 {item.detail}
               </p>

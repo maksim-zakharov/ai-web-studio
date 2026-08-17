@@ -8,8 +8,9 @@ export const siteOrigin = `${siteUrl}/`
 export const ogImageUrl = `${siteUrl}/og.svg`
 
 /** Заголовок страницы */
-export const siteTitle = "Разработка сайтов под ключ в Москве — Максим Захаров"
+export const siteTitle =
+  "Telegram WebApp, CRM, кабинеты и магазины — Максим Захаров"
 
 /** Meta description */
 export const siteDescription =
-  "Разработка сайтов и веб-приложений под ключ в Москве. Лендинги, корпоративные сайты, MVP и интеграции. Фиксированная стоимость, запуск за 1–4 недели."
+  "Разработка Telegram WebApp, CRM, личных кабинетов и интернет-магазинов под ключ в Москве. Оценка по составу задачи, запуск в production."

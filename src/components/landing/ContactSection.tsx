@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button"
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { budgetOptions } from "@/content/site"
 import { telegramHandle, telegramUrl } from "@/lib/social"
 
 /**
@@ -22,7 +21,6 @@ export function ContactSection() {
       `Имя: ${String(data.get("name") ?? "")}`,
       `Контакт: ${String(data.get("contact") ?? "")}`,
       `Задача: ${String(data.get("task") ?? "")}`,
-      `Бюджет: ${String(data.get("budget") ?? "")}`,
       `Комментарий: ${String(data.get("comment") ?? "")}`,
     ]
     const text = lines.join("\n")
@@ -43,12 +41,12 @@ export function ContactSection() {
             Есть задача? Давайте обсудим.
           </h2>
           <p className="mt-5 max-w-lg text-base text-muted-foreground sm:text-lg">
-            Расскажите, что нужно сделать. Я оценю задачу, предложу подход и
-            ориентировочную стоимость.
+            Расскажите, что нужно сделать — или сначала соберите ориентир в
+            калькуляторе. После этого пришлю подход и стоимость.
           </p>
           <Button asChild className="mt-8 h-11 px-5">
-            <a href={telegramUrl} target="_blank" rel="noopener noreferrer">
-              Обсудить проект
+            <a href="#calculate">
+              Рассчитать стоимость
               <ArrowRightIcon data-icon="inline-end" />
             </a>
           </Button>
@@ -103,25 +101,10 @@ export function ContactSection() {
                 <Input
                   id="task"
                   name="task"
-                  placeholder="Лендинг, сайт компании, MVP…"
+                  placeholder="WebApp, CRM, кабинет, магазин…"
                   className="min-h-11"
                   required
                 />
-              </Field>
-              <Field>
-                <FieldLabel htmlFor="budget">Примерный бюджет</FieldLabel>
-                <select
-                  id="budget"
-                  name="budget"
-                  required
-                  className="h-11 w-full min-w-0 rounded-lg border border-input bg-transparent px-2.5 text-base outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 md:text-sm dark:bg-input/30"
-                >
-                  {budgetOptions.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
               </Field>
               <Field>
                 <FieldLabel htmlFor="comment">Комментарий</FieldLabel>

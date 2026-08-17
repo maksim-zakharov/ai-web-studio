@@ -1,9 +1,9 @@
 import { AboutSection } from "@/components/landing/AboutSection"
+import { CalculatorSection } from "@/components/landing/CalculatorSection"
 import { CasesSection } from "@/components/landing/CasesSection"
 import { ContactSection } from "@/components/landing/ContactSection"
 import { FaqSection } from "@/components/landing/FaqSection"
 import { HeroSection } from "@/components/landing/HeroSection"
-import { PricingSection } from "@/components/landing/PricingSection"
 import { ProcessSection } from "@/components/landing/ProcessSection"
 import { ServicesSection } from "@/components/landing/ServicesSection"
 import { SiteFooter } from "@/components/landing/SiteFooter"
@@ -27,7 +27,7 @@ export function App() {
         <WorkflowSection />
         <CasesSection />
         <ProcessSection />
-        <PricingSection />
+        <CalculatorSection />
         <AboutSection />
         <FaqSection />
         <ContactSection />

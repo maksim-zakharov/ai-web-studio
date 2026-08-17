@@ -10,7 +10,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { navItems } from "@/content/site"
-import { telegramUrl } from "@/lib/social"
 
 /**
  * Липкая шапка с якорной навигацией и CTA.
@@ -43,9 +42,7 @@ export function SiteHeader() {
 
         <div className="hidden lg:block">
           <Button asChild className="h-10 px-4">
-            <a href={telegramUrl} target="_blank" rel="noopener noreferrer">
-              Обсудить проект
-            </a>
+            <a href="#calculate">Рассчитать стоимость</a>
           </Button>
         </div>
 
@@ -83,12 +80,8 @@ export function SiteHeader() {
               ))}
               <SheetClose asChild>
                 <Button asChild className="mt-3 h-11">
-                  <a
-                    href={telegramUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Обсудить проект
+                  <a href="#calculate">
+                    Рассчитать стоимость
                     <ArrowRightIcon data-icon="inline-end" />
                   </a>
                 </Button>

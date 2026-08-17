@@ -1,7 +1,8 @@
+import { email, emailUrl, legalCity, legalFullName, ogrnip } from "@/lib/legal"
 import { githubUrl, telegramUrl } from "@/lib/social"
 
 /**
- * Подвал сайта.
+ * Подвал сайта с реквизитами ИП.
  */
 export function SiteFooter() {
   const year = new Date().getFullYear()
@@ -13,10 +14,10 @@ export function SiteFooter() {
           <div>
             <p className="font-heading text-lg font-semibold">Максим Захаров</p>
             <p className="mt-2 text-sm text-muted-foreground">
-              AI-first web development
+              AI-first: WebApp, CRM, кабинеты, магазины
             </p>
             <p className="mt-1 text-sm text-muted-foreground">
-              Москва · удалённо
+              {legalCity} · удалённо
             </p>
           </div>
           <nav className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground">
@@ -29,6 +30,12 @@ export function SiteFooter() {
               Telegram
             </a>
             <a
+              href={emailUrl}
+              className="inline-flex min-h-11 items-center hover:text-foreground"
+            >
+              Почта
+            </a>
+            <a
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -38,7 +45,18 @@ export function SiteFooter() {
             </a>
           </nav>
         </div>
-        <p className="text-sm text-muted-foreground">© {year}</p>
+        <div className="flex flex-col gap-3 border-t border-white/6 pt-6 text-xs leading-relaxed text-muted-foreground">
+          <p>© {year}</p>
+          <address className="not-italic">
+            ИП {legalFullName}
+            <br />
+            ОГРНИП {ogrnip} · {legalCity}
+            <br />
+            <a href={emailUrl} className="hover:text-foreground">
+              {email}
+            </a>
+          </address>
+        </div>
       </div>
     </footer>
   )

@@ -60,11 +60,9 @@ export function CasePreview({ preview, label }: CasePreviewProps) {
       {preview === "sberads" && <SberAdsMock />}
       {preview === "market" && <MarketMock />}
       {preview === "wb" && <PortalMock />}
-      {preview === "clinic" && <ClinicMock />}
-      {preview === "realty" && <RealtyMock />}
-      {preview === "b2b" && <B2bMock />}
-      {preview === "architecture" && <ArchitectureMock />}
       {preview === "saas" && <SaasMock />}
+      {preview === "webapp" && <WebAppMock />}
+      {preview === "shop" && <ShopMock />}
     </div>
   )
 }
@@ -158,30 +156,31 @@ function PortalMock() {
   )
 }
 
-function ClinicMock() {
+function WebAppMock() {
   return (
-    <div className="flex h-full flex-col bg-[#f6f3ee] text-[#1c1917]">
-      <div className="flex items-center justify-between px-4 py-3">
-        <div className="h-2 w-24 rounded-full bg-[#1c1917]/80" />
-        <div className="h-6 w-16 rounded-full bg-[#1c1917]" />
-      </div>
-      <div className="grid flex-1 grid-cols-2 gap-3 px-4 pb-4">
-        <div className="flex flex-col justify-end">
-          <div className="h-3 w-4/5 rounded-full bg-[#1c1917]" />
-          <div className="mt-2 h-2 w-full rounded-full bg-[#1c1917]/20" />
-          <div className="mt-1.5 h-2 w-2/3 rounded-full bg-[#1c1917]/20" />
+    <div className="flex h-full justify-center bg-[#0e1621] p-3">
+      <div className="flex h-full w-[58%] max-w-[14rem] flex-col overflow-hidden rounded-[1.4rem] border border-white/10 bg-[#17212b]">
+        <div className="flex items-center justify-between px-3 py-2.5">
+          <div className="h-2 w-16 rounded-full bg-white/70" />
+          <div className="size-5 rounded-full bg-white/20" />
         </div>
-        <div className="rounded-xl bg-[#e7e0d6]" />
+        <div className="flex flex-1 flex-col gap-2 px-3 pb-3">
+          <div className="h-16 rounded-xl bg-white/8" />
+          <div className="h-8 rounded-lg bg-white/6" />
+          <div className="h-8 rounded-lg bg-white/6" />
+          <div className="mt-auto h-9 rounded-lg bg-[#3390ec]" />
+        </div>
       </div>
     </div>
   )
 }
 
-function RealtyMock() {
+function ShopMock() {
   return (
-    <div className="flex h-full flex-col bg-[#0f1412]">
-      <div className="px-4 py-3">
-        <div className="h-2 w-28 rounded-full bg-white/70" />
+    <div className="flex h-full flex-col bg-[#0c0c0e]">
+      <div className="flex items-center justify-between px-4 py-3">
+        <div className="h-2 w-24 rounded-full bg-white/70" />
+        <div className="h-6 w-14 rounded-md bg-white" />
       </div>
       <div className="grid flex-1 grid-cols-3 gap-2 px-3 pb-3">
         {[0, 1, 2].map((index) => (
@@ -189,42 +188,14 @@ function RealtyMock() {
             key={index}
             className="overflow-hidden rounded-lg bg-white/[0.04]"
           >
-            <div className="h-1/2 bg-[#1d3a32]" />
+            <div className="h-1/2 bg-white/10" />
             <div className="flex flex-col gap-1.5 p-2">
               <div className="h-1.5 w-10 rounded-full bg-white/50" />
-              <div className="h-1.5 w-14 rounded-full bg-white/20" />
+              <div className="h-1.5 w-8 rounded-full bg-white/80" />
             </div>
           </div>
         ))}
       </div>
-    </div>
-  )
-}
-
-function B2bMock() {
-  return (
-    <div className="grid h-full grid-cols-2 bg-[#101114]">
-      <div className="flex flex-col justify-end p-4">
-        <div className="h-2.5 w-24 rounded-full bg-white/80" />
-        <div className="mt-3 h-2 w-full rounded-full bg-white/15" />
-        <div className="mt-1.5 h-2 w-3/4 rounded-full bg-white/15" />
-        <div className="mt-4 h-7 w-24 rounded-md bg-white" />
-      </div>
-      <div className="m-3 grid grid-rows-3 gap-2">
-        <div className="rounded-md bg-white/8" />
-        <div className="rounded-md bg-white/5" />
-        <div className="rounded-md bg-white/10" />
-      </div>
-    </div>
-  )
-}
-
-function ArchitectureMock() {
-  return (
-    <div className="grid h-full grid-cols-3 grid-rows-2 gap-1 bg-[#09090b]">
-      <div className="col-span-2 row-span-2 bg-[#d6d3cd]" />
-      <div className="bg-[#2a2a2c]" />
-      <div className="bg-[#eceae4]" />
     </div>
   )
 }
