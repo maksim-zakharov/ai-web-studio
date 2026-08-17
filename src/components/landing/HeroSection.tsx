@@ -54,7 +54,7 @@ export function HeroSection() {
 
         <div
           aria-hidden
-          className="animate-float relative mx-auto h-44 w-full max-w-md sm:h-56 md:h-72 lg:h-[min(28rem,62vh)] lg:max-w-none"
+          className="relative mx-auto h-44 w-full max-w-md sm:h-56 md:h-72 lg:h-[min(28rem,62vh)] lg:max-w-none"
         >
           <HeroVisual />
         </div>
