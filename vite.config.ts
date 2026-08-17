@@ -1,16 +1,21 @@
 import path from "path"
+import { fileURLToPath } from "node:url"
 import tailwindcss from "@tailwindcss/vite"
 import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 
+const rootDir = path.dirname(fileURLToPath(import.meta.url))
+
+// Префикс только для деплоя на GitHub Pages (см. workflow env GITHUB_PAGES).
+const isGithubPages = process.env.GITHUB_PAGES === "true"
+
 // https://vite.dev/config/
 export default defineConfig({
-  // GitHub Pages project site: https://<user>.github.io/ai-web-studio/
-  base: "/ai-web-studio/",
+  base: isGithubPages ? "/ai-web-studio/" : "/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(rootDir, "./src"),
     },
   },
 })

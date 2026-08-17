@@ -1,4 +1,5 @@
 import { Separator } from "@/components/ui/separator"
+import { linkedInUrl, telegramUrl } from "@/lib/social"
 
 /**
  * Подвал лендинга.
@@ -13,21 +14,34 @@ export function SiteFooter() {
           <div>
             <p className="font-heading text-xl font-semibold">AI Web Studio</p>
             <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-              Заказная разработка веб-продуктов под ключ.
+              Готовые цифровые решения для бизнеса.
             </p>
           </div>
           <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
             <a href="#services" className="hover:text-foreground">
-              Услуги
+              Решения
             </a>
-            <a href="#process" className="hover:text-foreground">
-              Процесс
-            </a>
-            <a href="#faq" className="hover:text-foreground">
-              FAQ
+            <a href="#experience" className="hover:text-foreground">
+              Кейсы
             </a>
             <a href="#contact" className="hover:text-foreground">
               Контакты
+            </a>
+            <a
+              href={telegramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground"
+            >
+              Telegram
+            </a>
+            <a
+              href={linkedInUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground"
+            >
+              LinkedIn
             </a>
           </nav>
         </div>

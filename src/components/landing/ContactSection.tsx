@@ -11,6 +11,11 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import {
+  linkedInUrl,
+  telegramHandle,
+  telegramUrl,
+} from "@/lib/social"
 
 /**
  * Секция контакта с простой формой заявки (пока без бэкенда).
@@ -31,21 +36,34 @@ export function ContactSection() {
             Контакты
           </p>
           <h2 className="mt-3 font-heading text-3xl font-semibold text-balance md:text-4xl">
-            Расскажите о задаче
+            Расскажите о задаче бизнеса
           </h2>
           <p className="mt-4 text-muted-foreground md:text-lg">
-            Коротко опишите, что нужно сделать. Вернёмся с вопросами и оценкой
-            формата — без обязательств и длинных анкет.
+            Коротко опишите, какой результат нужен. Вернёмся с вопросами и
+            предложением по решению — без обязательств и технических анкет.
           </p>
           <div className="mt-8 flex flex-col gap-2 text-sm text-muted-foreground">
             <p>Ответ обычно в течение 1 рабочего дня.</p>
             <p>
-              Или напишите напрямую:{" "}
+              Telegram:{" "}
               <a
-                href="mailto:hello@ai-web-studio.ru"
+                href={telegramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="font-medium text-foreground underline-offset-4 hover:underline"
               >
-                hello@ai-web-studio.ru
+                {telegramHandle}
+              </a>
+            </p>
+            <p>
+              LinkedIn:{" "}
+              <a
+                href={linkedInUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-foreground underline-offset-4 hover:underline"
+              >
+                maksim-zakharov
               </a>
             </p>
           </div>
@@ -64,8 +82,17 @@ export function ContactSection() {
                 Заявка принята
               </h3>
               <p className="text-muted-foreground">
-                Пока это демо-форма без отправки на сервер. Подключим почту или
-                Telegram, когда будет готов канал.
+                Пока форма демо без отправки на сервер. Напишите напрямую в
+                Telegram{" "}
+                <a
+                  href={telegramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-foreground underline-offset-4 hover:underline"
+                >
+                  {telegramHandle}
+                </a>
+                .
               </p>
             </div>
           ) : (
@@ -89,16 +116,16 @@ export function ContactSection() {
                 />
               </Field>
               <Field>
-                <FieldLabel htmlFor="message">Задача</FieldLabel>
+                <FieldLabel htmlFor="message">Задача бизнеса</FieldLabel>
                 <Textarea
                   id="message"
                   name="message"
-                  placeholder="Что нужно сделать, сроки, ссылки на референсы"
+                  placeholder="Какой результат нужен, для кого, сроки"
                   rows={5}
                   required
                 />
                 <FieldDescription>
-                  Чем конкретнее — тем точнее оценка.
+                  Чем яснее цель бизнеса — тем точнее предложим решение.
                 </FieldDescription>
               </Field>
               <Button type="submit" size="lg" className="w-full sm:w-auto">

@@ -8,10 +8,12 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { telegramUrl } from "@/lib/social"
 
 const navItems = [
-  { href: "#services", label: "Услуги" },
+  { href: "#services", label: "Решения" },
   { href: "#process", label: "Процесс" },
+  { href: "#experience", label: "Кейсы" },
   { href: "#why", label: "Подход" },
   { href: "#faq", label: "FAQ" },
   { href: "#contact", label: "Контакты" },
@@ -45,7 +47,13 @@ export function SiteHeader() {
 
         <div className="hidden md:block">
           <Button asChild size="lg">
-            <a href="#contact">Обсудить проект</a>
+            <a
+              href={telegramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Обсудить решение
+            </a>
           </Button>
         </div>
 
@@ -75,7 +83,9 @@ export function SiteHeader() {
                 </a>
               ))}
               <Button asChild className="mt-2">
-                <a href="#contact">Обсудить проект</a>
+                <a href={telegramUrl} target="_blank" rel="noopener noreferrer">
+                  Обсудить решение
+                </a>
               </Button>
             </nav>
           </SheetContent>

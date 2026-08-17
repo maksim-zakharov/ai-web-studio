@@ -1,6 +1,7 @@
 import { ArrowRightIcon } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import { telegramUrl } from "@/lib/social"
 
 /**
  * Hero-секция: бренд, оффер и визуальный якорь на весь первый экран.
@@ -23,22 +24,22 @@ export function HeroSection() {
             AI Web Studio
           </p>
           <h1 className="animate-fade-up-delay mt-4 max-w-2xl font-heading text-2xl font-medium text-balance text-foreground/90 sm:text-3xl md:text-4xl">
-            Веб-продукты под ключ — от идеи до запуска
+            Готовые цифровые решения для бизнеса
           </h1>
           <p className="animate-fade-up-delay-2 mt-5 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Делаем сайты, сервисы и личные кабинеты, которые закрывают задачу
-            бизнеса: понятный UX, чистая архитектура и сопровождение после
-            релиза.
+            AI Web Studio запускает сайты, сервисы и внутренние системы под
+            ключ. Вы получаете работающий продукт под задачу бизнеса — не часы
+            разработки и не набор технологий.
           </p>
           <div className="animate-fade-up-delay-2 mt-8 flex flex-wrap items-center gap-3">
             <Button asChild size="lg">
-              <a href="#contact">
-                Обсудить задачу
+              <a href={telegramUrl} target="_blank" rel="noopener noreferrer">
+                Обсудить решение
                 <ArrowRightIcon data-icon="inline-end" />
               </a>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <a href="#services">Что делаем</a>
+              <a href="#services">Какие задачи закрываем</a>
             </Button>
           </div>
         </div>

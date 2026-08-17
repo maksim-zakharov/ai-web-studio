@@ -1,4 +1,5 @@
 import { ContactSection } from "@/components/landing/ContactSection"
+import { ExperienceSection } from "@/components/landing/ExperienceSection"
 import { FaqSection } from "@/components/landing/FaqSection"
 import { HeroSection } from "@/components/landing/HeroSection"
 import { ProcessSection } from "@/components/landing/ProcessSection"
@@ -18,6 +19,7 @@ export function App() {
         <HeroSection />
         <ServicesSection />
         <ProcessSection />
+        <ExperienceSection />
         <WhySection />
         <FaqSection />
         <ContactSection />
