@@ -12,25 +12,25 @@ const steps: ProcessStep[] = [
     step: "01",
     title: "Разбираем задачу",
     description:
-      "Смотрим на цель бизнеса, аудиторию и ограничения. Фиксируем, какой результат нужен и к какому сроку.",
+      "Смотрю на цель бизнеса, аудиторию и ограничения. Фиксируем, какой результат нужен и к какому сроку.",
   },
   {
     step: "02",
     title: "Проектируем решение",
     description:
-      "Собираем сценарии, экраны и логику продукта. Согласовываем, как это будет работать для людей, а не «как напишем код».",
+      "Собираю сценарии, экраны и логику продукта. Согласуем, как это будет работать для людей, а не «как напишем код».",
   },
   {
     step: "03",
-    title: "Собираем и запускаем",
+    title: "Собираю и запускаю",
     description:
-      "Делаем продукт итерациями, показываем промежуточные версии и выводим в прод, когда решение готово к работе.",
+      "Делаю продукт итерациями, показываю промежуточные версии и вывожу в прод, когда решение готово к работе.",
   },
   {
     step: "04",
     title: "Передаём и сопровождаем",
     description:
-      "Доступы, инструкции и поддержка на старте — чтобы команда могла пользоваться системой без нас в каждом шаге.",
+      "Доступы, инструкции и поддержка на старте — чтобы команда могла пользоваться системой без меня в каждом шаге.",
   },
 ]
 
@@ -41,23 +41,23 @@ export function ProcessSection() {
   return (
     <section
       id="process"
-      className="scroll-mt-20 border-y border-border/70 bg-secondary/40 py-20 md:py-28"
+      className="section-anchor section-y border-y border-border/70 bg-secondary/40"
     >
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
+      <div className="page-container">
         <div className="max-w-2xl">
           <p className="text-sm font-medium tracking-wide text-primary uppercase">
             Процесс
           </p>
-          <h2 className="mt-3 font-heading text-3xl font-semibold text-balance md:text-4xl">
-            Как студия ведёт проект
+          <h2 className="mt-3 font-heading text-[clamp(1.5rem,4vw,2.25rem)] font-semibold text-balance">
+            Как я веду проект
           </h2>
           <p className="mt-4 text-muted-foreground md:text-lg">
-            Прозрачные этапы и понятные точки согласования. Вы покупаете готовое
-            решение, а не процесс «набросаем часы».
+            Один контакт, короткие итерации, понятные точки согласования. Вы
+            покупаете готовое решение, а не отчёт по часам.
           </p>
         </div>
 
-        <ol className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <ol className="mt-8 grid gap-6 sm:mt-10 sm:grid-cols-2 sm:gap-8 lg:mt-12 lg:grid-cols-4 lg:gap-6">
           {steps.map((item) => (
             <li key={item.step} className="flex flex-col gap-3">
               <span className="font-heading text-sm font-semibold tracking-[0.2em] text-primary">

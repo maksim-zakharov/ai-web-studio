@@ -53,22 +53,23 @@ const services: ServiceItem[] = [
  */
 export function ServicesSection() {
   return (
-    <section id="services" className="scroll-mt-20 py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
+    <section id="services" className="section-anchor section-y">
+      <div className="page-container">
         <div className="max-w-2xl">
           <p className="text-sm font-medium tracking-wide text-primary uppercase">
             Решения
           </p>
-          <h2 className="mt-3 font-heading text-3xl font-semibold text-balance md:text-4xl">
+          <h2 className="mt-3 font-heading text-[clamp(1.5rem,4vw,2.25rem)] font-semibold text-balance">
             Что получает бизнес
           </h2>
           <p className="mt-4 text-muted-foreground md:text-lg">
-            Берём задачу целиком и отдаём готовый результат: от формулировки
-            цели до запуска. Технологии подбираем под продукт, а не наоборот.
+            Беру задачу целиком и отдаю готовый результат: от формулировки цели
+            до запуска. Стек подбираю под продукт — его не нужно выбирать
+            заранее.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2">
+        <div className="mt-8 grid gap-3 sm:mt-10 sm:grid-cols-2 sm:gap-4 lg:mt-12">
           {services.map((service) => {
             const Icon = service.icon
 
@@ -81,8 +82,10 @@ export function ServicesSection() {
                   <div className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
                     <Icon />
                   </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                  <CardDescription className="text-base leading-relaxed">
+                  <CardTitle className="text-lg sm:text-xl">
+                    {service.title}
+                  </CardTitle>
+                  <CardDescription className="text-sm leading-relaxed sm:text-base">
                     {service.description}
                   </CardDescription>
                 </CardHeader>

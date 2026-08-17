@@ -3,6 +3,7 @@ import { MenuIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
@@ -24,16 +25,16 @@ const navItems = [
  */
 export function SiteHeader() {
   return (
-    <header className="absolute inset-x-0 top-0 z-40">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:h-20 md:px-6">
+    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 pt-[env(safe-area-inset-top)] backdrop-blur-md">
+      <div className="page-container flex h-14 items-center justify-between sm:h-16 lg:h-16">
         <a
           href="#top"
-          className="font-heading text-lg font-semibold tracking-tight text-foreground md:text-xl"
+          className="font-heading text-base font-semibold tracking-tight text-foreground sm:text-lg lg:text-xl"
         >
           AI Web Studio
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-7">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -45,13 +46,9 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <Button asChild size="lg">
-            <a
-              href={telegramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={telegramUrl} target="_blank" rel="noopener noreferrer">
               Обсудить решение
             </a>
           </Button>
@@ -62,27 +59,31 @@ export function SiteHeader() {
             <Button
               variant="outline"
               size="icon"
-              className="md:hidden"
+              className="size-11 lg:hidden"
               aria-label="Открыть меню"
             >
               <MenuIcon />
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[min(100%,20rem)]">
+          <SheetContent
+            side="right"
+            className="w-[min(100%,20rem)] pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
+          >
             <SheetHeader>
               <SheetTitle>AI Web Studio</SheetTitle>
             </SheetHeader>
-            <nav className="mt-6 flex flex-col gap-4 px-4">
+            <nav className="mt-4 flex flex-col gap-1 px-4">
               {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="text-base text-foreground"
-                >
-                  {item.label}
-                </a>
+                <SheetClose asChild key={item.href}>
+                  <a
+                    href={item.href}
+                    className="flex min-h-11 items-center text-base text-foreground"
+                  >
+                    {item.label}
+                  </a>
+                </SheetClose>
               ))}
-              <Button asChild className="mt-2">
+              <Button asChild className="mt-3 min-h-11">
                 <a href={telegramUrl} target="_blank" rel="noopener noreferrer">
                   Обсудить решение
                 </a>

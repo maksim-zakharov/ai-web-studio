@@ -124,11 +124,11 @@
   }
 
   html {
-    @apply scroll-smooth font-sans;
+    @apply overflow-x-clip scroll-smooth font-sans;
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply overflow-x-clip bg-background text-foreground antialiased;
   }
 
   h1,
@@ -140,6 +140,18 @@
 }
 
 @layer utilities {
+  .page-container {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-y {
+    @apply py-14 sm:py-16 md:py-20 lg:py-28;
+  }
+
+  .section-anchor {
+    scroll-margin-top: calc(env(safe-area-inset-top) + 4.75rem);
+  }
+
   .text-balance {
     text-wrap: balance;
   }
@@ -158,6 +170,16 @@
 
   .animate-float {
     animation: float 8s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up,
+    .animate-fade-up-delay,
+    .animate-fade-up-delay-2,
+    .animate-float,
+    .animate-mesh {
+      animation: none;
+    }
   }
 
   .animate-mesh {

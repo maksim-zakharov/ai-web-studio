@@ -11,11 +11,7 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import {
-  linkedInUrl,
-  telegramHandle,
-  telegramUrl,
-} from "@/lib/social"
+import { linkedInUrl, telegramHandle, telegramUrl } from "@/lib/social"
 
 /**
  * Секция контакта с простой формой заявки (пока без бэкенда).
@@ -29,17 +25,20 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="scroll-mt-20 py-20 md:py-28">
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-[1fr_1fr] md:px-6 lg:gap-16">
+    <section
+      id="contact"
+      className="section-anchor section-y pb-[max(3.5rem,env(safe-area-inset-bottom))]"
+    >
+      <div className="page-container grid gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
           <p className="text-sm font-medium tracking-wide text-primary uppercase">
             Контакты
           </p>
-          <h2 className="mt-3 font-heading text-3xl font-semibold text-balance md:text-4xl">
+          <h2 className="mt-3 font-heading text-[clamp(1.5rem,4vw,2.25rem)] font-semibold text-balance">
             Расскажите о задаче бизнеса
           </h2>
           <p className="mt-4 text-muted-foreground md:text-lg">
-            Коротко опишите, какой результат нужен. Вернёмся с вопросами и
+            Коротко опишите, какой результат нужен. Вернусь с вопросами и
             предложением по решению — без обязательств и технических анкет.
           </p>
           <div className="mt-8 flex flex-col gap-2 text-sm text-muted-foreground">
@@ -71,7 +70,7 @@ export function ContactSection() {
 
         <form
           onSubmit={handleSubmit}
-          className="rounded-2xl border border-border bg-card/80 p-5 md:p-6"
+          className="rounded-2xl border border-border bg-card/80 p-4 sm:p-5 md:p-6"
         >
           {submitted ? (
             <div className="flex min-h-64 flex-col items-start justify-center gap-3">
@@ -103,6 +102,7 @@ export function ContactSection() {
                   id="name"
                   name="name"
                   placeholder="Как к вам обращаться"
+                  className="min-h-11"
                   required
                 />
               </Field>
@@ -112,6 +112,7 @@ export function ContactSection() {
                   id="contact"
                   name="contact"
                   placeholder="@username или you@mail.com"
+                  className="min-h-11"
                   required
                 />
               </Field>
@@ -125,10 +126,14 @@ export function ContactSection() {
                   required
                 />
                 <FieldDescription>
-                  Чем яснее цель бизнеса — тем точнее предложим решение.
+                  Чем яснее цель бизнеса — тем точнее предложу решение.
                 </FieldDescription>
               </Field>
-              <Button type="submit" size="lg" className="w-full sm:w-auto">
+              <Button
+                type="submit"
+                size="lg"
+                className="h-11 w-full px-4 sm:w-auto"
+              >
                 Отправить
                 <SendIcon data-icon="inline-end" />
               </Button>
