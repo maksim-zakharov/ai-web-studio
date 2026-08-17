@@ -11,11 +11,11 @@ export function HeroSection() {
     <section id="top" className="relative isolate overflow-hidden">
       <div
         aria-hidden
-        className="animate-mesh absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_20%_20%,oklch(0.88_0.07_175)_0%,transparent_45%),radial-gradient(ellipse_at_80%_10%,oklch(0.9_0.08_85)_0%,transparent_40%),radial-gradient(ellipse_at_70%_80%,oklch(0.9_0.04_200)_0%,transparent_50%),linear-gradient(165deg,oklch(0.97_0.015_95),oklch(0.94_0.02_100))] bg-[length:140%_140%]"
+        className="animate-mesh absolute inset-0 -z-20 bg-[length:140%_140%] bg-[radial-gradient(ellipse_at_16%_8%,#3390ec55_0%,transparent_46%),radial-gradient(ellipse_at_88%_12%,#2b527866_0%,transparent_42%),radial-gradient(ellipse_at_72%_92%,#2aabee33_0%,transparent_50%),linear-gradient(165deg,#0e1621,#0b121a)]"
       />
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 hidden [background-image:linear-gradient(to_right,oklch(0.35_0.04_165/0.08)_1px,transparent_1px),linear-gradient(to_bottom,oklch(0.35_0.04_165/0.08)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)] [background-size:48px_48px] opacity-[0.35] sm:block"
+        className="absolute inset-0 -z-10 hidden opacity-[0.2] sm:block [background-image:linear-gradient(to_right,#6ab3f326_1px,transparent_1px),linear-gradient(to_bottom,#6ab3f326_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black_28%,transparent_75%)]"
       />
 
       <div className="page-container grid min-h-[calc(100svh-3.5rem)] grid-cols-1 items-center gap-8 py-10 sm:min-h-[calc(100svh-4rem)] sm:gap-10 sm:py-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12 lg:py-20">
@@ -69,7 +69,7 @@ export function HeroSection() {
 function HeroVisual() {
   return (
     <div className="relative h-full w-full">
-      <div className="absolute inset-0 rounded-2xl border border-foreground/10 bg-card/80 shadow-[0_40px_80px_-40px_oklch(0.3_0.05_165/0.45)] backdrop-blur-sm sm:rounded-[1.5rem] lg:inset-[6%_0_6%_8%]">
+      <div className="absolute inset-0 rounded-2xl border border-white/10 bg-[#17212b]/90 shadow-[0_40px_90px_-36px_#3390ec66] backdrop-blur-sm sm:rounded-[1.5rem] lg:inset-[6%_0_6%_8%]">
         <div className="flex h-9 items-center gap-2 border-b border-border px-3 sm:h-10 sm:px-4">
           <span className="size-2.5 rounded-full bg-primary/40" />
           <span className="size-2.5 rounded-full bg-accent-foreground/20" />
@@ -81,7 +81,7 @@ function HeroVisual() {
             <div className="h-6 rounded-lg bg-primary/15 sm:h-8" />
             <div className="h-6 rounded-lg bg-muted sm:h-8" />
             <div className="hidden h-8 rounded-lg bg-muted sm:block" />
-            <div className="mt-auto h-14 rounded-xl bg-[linear-gradient(145deg,oklch(0.7_0.08_175),oklch(0.85_0.08_85))] sm:h-20" />
+            <div className="mt-auto h-14 rounded-xl bg-[linear-gradient(145deg,#3390ec,#2b5278)] sm:h-20" />
           </div>
           <div className="flex flex-col gap-2 sm:gap-3">
             <div className="h-16 rounded-xl border border-border bg-background/80 sm:h-24" />
